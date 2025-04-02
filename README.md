@@ -1,108 +1,76 @@
-🚀 **AI-Powered Bug Detection OS**
-An intelligent system that monitors, detects, and fixes bugs in real-time using AI.
+# 🚀 AI Powered Bug Detection OS
 
-📌 **Project Overview**
-The AI-Powered Bug Detection OS is designed to enhance system stability and performance by monitoring system behavior, detecting anomalies, and suggesting automatic fixes. It leverages machine learning and automation to predict failures, troubleshoot issues, and provide community-driven bug reporting.
+## 📌 Overview
 
-🛠️ **Features**
+The **AI Powered Bug Detection OS** is a cutting-edge operating system designed to **detect, analyze, and optimize software debugging** using artificial intelligence. By integrating machine learning models, it proactively identifies software vulnerabilities, streamlines debugging, and enhances system security. 
 
-1️⃣ System Monitoring & Bug Detection
+## 🌟 Features
 
-✅ Real-time tracking of CPU, RAM, Disk, and Network usage
+🔍 **AI-driven Bug Detection**: Automatically scans and detects software bugs in real-time using ML algorithms.
 
-✅ Log scanning to detect errors and crashes
+⚙️ **System Resource Monitor**: Provides real-time CPU, memory, and disk usage analysis for optimized performance.
 
-✅ Process monitoring to find applications consuming excessive resources
+📊 **Process Management**: Implements scheduling algorithms like FCFS, SJF, and Round Robin for efficient multitasking.
 
-✅ Anomaly detection to alert about unusual behavior
+🖥️ **Memory Management**: Simulates paging, segmentation, and dynamic allocation strategies.
 
+📂 **File Handling**: Supports system calls and file operations for managing resources efficiently.
 
+🔄 **Multi-threading Support**: Enables concurrent process execution for enhanced efficiency.
 
-2️⃣ AI-Powered Bug Fixing & Troubleshooting
+🖥️ **User-friendly Interface**: Includes a CLI and an interactive dashboard for monitoring system activities.
 
-✅ Predictive maintenance alerts before failures occur
+## 🛠 Installation
 
-✅ AI-generated suggestions for fixes
+Follow these steps to set up and run the AI Powered Bug Detection OS:
 
-✅ Self-healing mechanism (auto-restart services if needed)
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/Ai-Powered-Bug-Detection-OS.git
+   ```
+2. **Navigate to the Project Directory:**
+   ```bash
+   cd Ai-Powered-Bug-Detection-OS
+   ```
+3. **Compile the Source Code (if applicable):**
+   ```bash
+   gcc main.c -o ai_bug_detector -pthread
+   ```
+4. **Run the System:**
+   ```bash
+   ./ai_bug_detector
+   ```
 
-✅ Bug classification (performance issues, security bugs, app crashes)
+## 🚀 How It Works
 
+The AI Powered Bug Detection OS follows a structured workflow to detect and resolve software bugs:
 
+1. **User Input**: The user uploads a program or selects a system operation.
+2. **AI Analysis**: The integrated machine learning model scans the code for potential vulnerabilities and inefficiencies.
+3. **Processing**: The simulator processes the request using implemented OS algorithms.
+4. **Execution**: The system executes the requested operation and provides insights or debugging suggestions.
+5. **Loop/Exit**: The user can choose to reanalyze, modify the code, or exit the system.
 
-3️⃣ Community-Driven Bug Reporting & Data Visualization
+## 📊 System Resource Monitor
 
-✅ Automated bug reports with detailed logs
+The AI Powered Bug Detection OS includes a **real-time system monitor** to track performance metrics such as:
 
-✅ Users can submit bugs manually
+- **CPU Usage**: Displays processor usage percentage and active processes.
+- **Memory Usage**: Monitors RAM consumption and available resources.
+- **Disk Usage**: Keeps track of storage capacity and allocation.
+- **Top CPU-Intensive Processes**: Lists active processes consuming the most system resources.
 
-✅ Data visualization dashboard (graphs showing system health & errors)
+## 🤝 Contributing
 
-✅ Community-driven solutions for unresolved issues
+Contributions are welcome! To contribute:
 
+1. **Fork the Repository**
+2. **Create a New Branch** (`git checkout -b feature-branch`)
+3. **Commit Your Changes** (`git commit -m 'Add new feature'`)
+4. **Push to the Branch** (`git push origin feature-branch`)
+5. **Open a Pull Request`
 
-📂 **Project Structure**
-```
-AI-Bug-Detector/
-│── monitor.py           # System monitoring script
-│── ai_bug_detector.py   # AI-based bug detection
-│── bug_report.py        # Community bug reporting system
-│── app.py               # Flask backend
-│── static/              # CSS, JavaScript for frontend
-│── templates/           # HTML files for UI
-│── README.md            # Documentation
-│── requirements.txt     # Dependencies
-```
+## 💡 Acknowledgments
 
-🚀 **Technologies Used**
-Programming Languages: Python, JavaScript
+Special thanks to all contributors and resources that helped in building the AI Powered Bug Detection OS!
 
-Backend: Flask (Python)
-
-Frontend: HTML, CSS, JavaScript
-
-Machine Learning: Scikit-learn, TensorFlow (for AI detection)
-
-Database: SQLite / MongoDB (for bug reports)
-
-Visualization: Matplotlib, Plotly (for system monitoring)
-
-
-💡 **How to Run the Project**
-Step 1: Clone the Repository
-
-```
-git clone https://github.com/YOUR-USERNAME/AI-Bug-Detector.git
-cd AI-Bug-Detector
-```
-
-Step 2: Install Dependencies
-
-```
-pip install -r requirements.txt
-```
-
-Step 3: Run the Application
-
-```
-python app.py
-```
-
-
-📌 Contribution Guidelines
-🔹 Clone & Fork the repo
-🔹 Create a new branch for feature development
-🔹 Commit with meaningful messages
-🔹 Push changes & submit a pull request
-
-📌 GitHub Workflow & Revision Tracking
-✅ Maintain at least 7 commits with clear messages
-
-✅ Use branches for feature implementation and merge after testing
-
-✅ Keep repository Public for accessibility
-
-✅ Maintain a proper README.md file with details
-
-📩 Contact & Support
-If you find bugs or have feature suggestions, please open an issue or contact the developers.
