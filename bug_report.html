@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report System Bug</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Keep the existing root variables from index.html */
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #1976D2;
+            --success-color: #4CAF50;
+            --warning-color: #FFC107;
+            --danger-color: #F44336;
+            --background-color: #F5F7FA;
+            --card-background: #FFFFFF;
+            --text-primary: #2C3E50;
+            --text-secondary: #7F8C8D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .bug-form {
+            background: var(--card-background);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .form-header i {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .form-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .severity-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .severity-option {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .severity-option:hover {
+            border-color: var(--primary-color);
+        }
+
+        .severity-option.selected {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .submit-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .success-message {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--success-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .error-message {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: var(--danger-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Dashboard
+        </a>
+
+        <div class="bug-form">
+            <div class="form-header">
+                <i class="fas fa-bug"></i>
+                <h1 class="form-title">Report a Bug</h1>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                Bug report submitted successfully!
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+
+            <form id="bugReportForm" onsubmit="submitBugReport(event)">
+                <div class="form-group">
+                    <label for="bugTitle">Bug Title</label>
+                    <input type="text" id="bugTitle" class="form-control" required
+                           placeholder="Brief description of the issue">
+                </div>
+
+                <div class="form-group">
+                    <label>Bug Category</label>
+                    <select class="form-control" id="bugCategory" required>
+                        <option value="">Select a category</option>
+                        <option value="performance">Performance Issues</option>
+                        <option value="cpu">CPU Usage</option>
+                        <option value="memory">Memory Usage</option>
+                        <option value="disk">Disk Usage</option>
+                        <option value="process">Process Management</option>
+                        <option value="ui">User Interface</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Severity</label>
+                    <div class="severity-options">
+                        <div class="severity-option" data-severity="low">Low</div>
+                        <div class="severity-option" data-severity="medium">Medium</div>
+                        <div class="severity-option" data-severity="high">High</div>
+                        <div class="severity-option" data-severity="critical">Critical</div>
+                    </div>
+                    <input type="hidden" id="bugSeverity" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bugDescription">Detailed Description</label>
+                    <textarea id="bugDescription" class="form-control" required
+                              placeholder="Provide a detailed description of the issue"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="stepsToReproduce">Steps to Reproduce</label>
+                    <textarea id="stepsToReproduce" class="form-control"
+                              placeholder="List the steps to reproduce this issue"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="expectedBehavior">Expected Behavior</label>
+                    <textarea id="expectedBehavior" class="form-control"
+                              placeholder="What should happen?"></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    <i class="fas fa-paper-plane"></i>
+                    Submit Bug Report
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize severity selection
+        document.querySelectorAll('.severity-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.severity-option').forEach(opt => 
+                    opt.classList.remove('selected'));
+                this.classList.add('selected');
+                document.getElementById('bugSeverity').value = this.dataset.severity;
+            });
+        });
+
+        function submitBugReport(event) {
+            event.preventDefault();
+            
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const submitButton = event.target.querySelector('button[type="submit"]');
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Disable submit button and show loading state
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+            const bugReport = {
+                title: document.getElementById('bugTitle').value,
+                category: document.getElementById('bugCategory').value,
+                severity: document.getElementById('bugSeverity').value,
+                description: document.getElementById('bugDescription').value,
+                steps_to_reproduce: document.getElementById('stepsToReproduce').value,
+                expected_behavior: document.getElementById('expectedBehavior').value
+            };
+
+            fetch('/api/report-bug', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(bugReport)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    successMessage.style.display = 'block';
+                    document.getElementById('bugReportForm').reset();
+                    document.querySelectorAll('.severity-option').forEach(opt => 
+                        opt.classList.remove('selected'));
+                } else {
+                    errorMessage.textContent = data.message;
+                    errorMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                errorMessage.textContent = 'Failed to submit bug report. Please try again.';
+                errorMessage.style.display = 'block';
+            })
+            .finally(() => {
+                // Re-enable submit button and restore original text
+                submitButton.disabled = false;
+                submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Bug Report';
+            });
+        }
+    </script>
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
