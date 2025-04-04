@@ -1,76 +1,84 @@
-# 🚀 AI Powered Bug Detection OS
+# AI-Powered Bug Detection OS
 
-## 📌 Overview
+An operating system monitoring tool that uses AI to detect and report system anomalies and bugs in real-time.
 
-The **AI Powered Bug Detection OS** is a cutting-edge operating system designed to **detect, analyze, and optimize software debugging** using artificial intelligence. By integrating machine learning models, it proactively identifies software vulnerabilities, streamlines debugging, and enhances system security. 
+## Features
 
-## 🌟 Features
+- Real-time system metrics monitoring (CPU, Memory, Disk usage)
+- AI-powered anomaly detection using Isolation Forest algorithm
+- Bug reporting system with a modern UI
+- Responsive dashboard with Tailwind CSS
+- Real-time updates and alerts
 
-🔍 **AI-driven Bug Detection**: Automatically scans and detects software bugs in real-time using ML algorithms.
+## Prerequisites
 
-⚙️ **System Resource Monitor**: Provides real-time CPU, memory, and disk usage analysis for optimized performance.
+- Python 3.7 or higher
+- pip (Python package manager)
 
-📊 **Process Management**: Implements scheduling algorithms like FCFS, SJF, and Round Robin for efficient multitasking.
+## Installation
 
-🖥️ **Memory Management**: Simulates paging, segmentation, and dynamic allocation strategies.
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd ai-bug-detection-os
+```
 
-📂 **File Handling**: Supports system calls and file operations for managing resources efficiently.
+2. Create a virtual environment (recommended):
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-🔄 **Multi-threading Support**: Enables concurrent process execution for enhanced efficiency.
+3. Install the required packages:
+```bash
+pip install -r requirements.txt
+```
 
-🖥️ **User-friendly Interface**: Includes a CLI and an interactive dashboard for monitoring system activities.
+## Running the Application
 
-## 🛠 Installation
+1. Start the Flask backend:
+```bash
+python app.py
+```
 
-Follow these steps to set up and run the AI Powered Bug Detection OS:
+2. Open your web browser and navigate to:
+```
+http://localhost:5000
+```
 
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/yourusername/Ai-Powered-Bug-Detection-OS.git
-   ```
-2. **Navigate to the Project Directory:**
-   ```bash
-   cd Ai-Powered-Bug-Detection-OS
-   ```
-3. **Compile the Source Code (if applicable):**
-   ```bash
-   gcc main.c -o ai_bug_detector -pthread
-   ```
-4. **Run the System:**
-   ```bash
-   ./ai_bug_detector
-   ```
+## Project Structure
 
-## 🚀 How It Works
+```
+ai-bug-detection-os/
+├── app.py              # Flask backend application
+├── requirements.txt    # Python dependencies
+├── static/
+│   └── js/
+│       └── main.js    # Frontend JavaScript
+└── templates/
+    └── index.html     # Main HTML template
+```
 
-The AI Powered Bug Detection OS follows a structured workflow to detect and resolve software bugs:
+## Technologies Used
 
-1. **User Input**: The user uploads a program or selects a system operation.
-2. **AI Analysis**: The integrated machine learning model scans the code for potential vulnerabilities and inefficiencies.
-3. **Processing**: The simulator processes the request using implemented OS algorithms.
-4. **Execution**: The system executes the requested operation and provides insights or debugging suggestions.
-5. **Loop/Exit**: The user can choose to reanalyze, modify the code, or exit the system.
+- Backend:
+  - Flask (Python web framework)
+  - scikit-learn (AI/ML library)
+  - psutil (System monitoring)
 
-## 📊 System Resource Monitor
+- Frontend:
+  - HTML5
+  - Tailwind CSS
+  - JavaScript (ES6+)
 
-The AI Powered Bug Detection OS includes a **real-time system monitor** to track performance metrics such as:
+## Contributing
 
-- **CPU Usage**: Displays processor usage percentage and active processes.
-- **Memory Usage**: Monitors RAM consumption and available resources.
-- **Disk Usage**: Keeps track of storage capacity and allocation.
-- **Top CPU-Intensive Processes**: Lists active processes consuming the most system resources.
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
 
-## 🤝 Contributing
+## License
 
-Contributions are welcome! To contribute:
-
-1. **Fork the Repository**
-2. **Create a New Branch** (`git checkout -b feature-branch`)
-3. **Commit Your Changes** (`git commit -m 'Add new feature'`)
-4. **Push to the Branch** (`git push origin feature-branch`)
-5. **Open a Pull Request`
-
-## 💡 Acknowledgments
-
-Special thanks to all contributors and resources that helped in building the AI Powered Bug Detection OS!
-
+This project is licensed under the MIT License - see the LICENSE file for details. 
